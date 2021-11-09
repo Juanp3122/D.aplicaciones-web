@@ -26,9 +26,9 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit" href="/ListaPropietarios">Listado</Button>
+          <Button color="inherit" href="#/ListaPropietarios">Listado</Button>
           <Button color="inherit">Añadir Vehiculo</Button>
-          <Button color="inherit">Añadir Dueño</Button>
+          <Button color="inherit" href="#/PropietarioPost">Añadir Dueño</Button>
         </Toolbar>
       </AppBar>
     </div>
