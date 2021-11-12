@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const redirect=()=>{
+  window.location.href="/ListaPropietarios"
+}
 export default function NavBar() {
   const classes = useStyles();
 
@@ -26,9 +29,8 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit" href="#/ListaPropietarios">Listado</Button>
-          <Button color="inherit">Añadir Vehiculo</Button>
-          <Button color="inherit" href="#/PropietarioPost">Añadir Dueño</Button>
+          <Link color="inherit" to="/Lista">Listado</Link>
+          
         </Toolbar>
       </AppBar>
     </div>

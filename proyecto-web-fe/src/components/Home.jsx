@@ -4,8 +4,12 @@ import NavBar from "./NavBar"
 export default function Home(){
     return (
         <>
+        <div>
         <NavBar></NavBar>
-        <ListaPropietarios></ListaPropietarios>
+        </div>
+        <div>
+            fwefwfwfwfw
+        </div>
         </>
     )
 };
