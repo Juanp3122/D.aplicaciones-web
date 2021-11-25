@@ -32,7 +32,7 @@ export default function NavBar() {
           <Button color="inherit"  href="/lista-propietarios" >Listado</Button>
           
           
-          <Button color="inherit">Añadir Vehiculo</Button>
+          
           <Button color="inherit"  href="/post-propietarios">Añadir Dueño</Button>
         </Toolbar>
       </AppBar>

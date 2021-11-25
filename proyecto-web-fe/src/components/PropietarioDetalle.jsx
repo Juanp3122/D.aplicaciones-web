@@ -7,6 +7,10 @@ import Grid from '@material-ui/core/Grid';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import { IconButton } from '@material-ui/core';
 import { Button, Dialog, DialogContent, DialogTitle } from "@material-ui/core";
+import DialogActions from '@material-ui/core/DialogActions';
+
+import DialogContentText from '@material-ui/core/DialogContentText';
+
 const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "30px",
@@ -22,12 +26,23 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '10px',
         backgroundColor: '#fff'
     },
+    data2:{
+        margin: "10px",
+        fontSize: "20px",
+        fontWeight:"bold"
+    },
+    data3:{
+        marginLeft: "10px",
+        fontSize: "20px",
+        fontWeight:"300"
+    }
+
 
 
 }));
 let parametro = ""
 export default function PropietarioDetalle() {
-    const [openDialog, setOpenDialog] = useState(false)
+
     const classes = useStyles();
     const propietarioservice = new propietarioService();
     const [propietario, setPropietario] = useState([]);
@@ -47,31 +62,84 @@ export default function PropietarioDetalle() {
     useEffect(() => {
         loadPropietario();
     }, [])
-    
-    function DetalleVehiculos(props) {
-        //setOpenDialog(true)
-        //console.log(props.tecno.tecnicoMecanica)
 
-        console.log(props.direccion)
+    function AlertDialog(props) {
+        const [open, setOpen] = useState(false);
+        console.log(props.vehiculo)
+        const handleClickOpen = () => {
+            setOpen(true);
+        };
+
+        const handleClose = () => {
+            setOpen(false);
+        };
 
         return (
-            <Dialog
-                open={props.open}
-                fullWidth={fullWidth}
-                onClose={props.onClose}
-                aria-labelledby="max-width-dialog-title"
-                classes={{ paper: classes.paper }}
-            >
-                <DialogTitle>
-                    {/* {props.tecno.tecnicoMecanica.direccion} */}
-                </DialogTitle>
-                <DialogContent>
-
-
-
-                </DialogContent>
-            </Dialog>
-        )
+            <div>
+                
+                <IconButton onClick={handleClickOpen} aria-label="delete">
+                    <VisibilityIcon />
+                </IconButton>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                
+                    fullWidth={true}
+                >
+                    
+                    <DialogTitle className={classes.title} >
+                    <Typography className={classes.title}>Información Tecnico Mecánica</Typography>
+                    </DialogTitle>
+                    <DialogContent>
+                        
+                            <Typography className={classes.data2} >
+                                Lugar de revisión:
+                            </Typography>
+                            <Typography className={classes.data3}>
+                            {props.vehiculo.tecnicoMecanica.direccion}
+                            </Typography >
+                            <Typography className={classes.data2}>
+                                Fecha:
+                            </Typography >
+                            <Typography className={classes.data3}>
+                            {props.vehiculo.tecnicoMecanica.fecha}
+                            </Typography>
+                            <Typography className={classes.data2}>
+                                Encargado:
+                            </Typography>
+                            <Typography className={classes.data3}>
+                            {props.vehiculo.tecnicoMecanica.encargado}
+                            </Typography>
+                            <Typography className={classes.data2}>
+                                Próxima Revisión:
+                            </Typography>
+                            <Typography className={classes.data3}>
+                            {props.vehiculo.tecnicoMecanica.proxRevision}
+                            </Typography>
+                            <Typography className={classes.data2}>
+                                Estado:
+                            </Typography>
+                            <Typography className={classes.data3}>
+                            {props.vehiculo.tecnicoMecanica.estado}
+                            </Typography>
+                            <Typography className={classes.data2}>
+                                Observaciones:
+                            </Typography>
+                            <Typography className={classes.data3}>
+                            {props.vehiculo.tecnicoMecanica.observaciones}
+                            </Typography>
+                           
+                        
+                    </DialogContent>
+                    <DialogActions>
+                        
+                        <Button onClick={handleClose} color="primary" autoFocus>
+                            Cerrar
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+        );
     }
     return (
         <div>
@@ -107,11 +175,8 @@ export default function PropietarioDetalle() {
                                     </Typography>
                                 </Grid>
                                 <Grid item lg={2}>
-                                    <IconButton onClick={() => DetalleVehiculos(item)} key={item} aria-label="delete">
-                                        <VisibilityIcon />
-                                    </IconButton>
-                                    <DetalleVehiculos
-                                        vehiculo={item} open={openDialog} onClose={() => setOpenDialog(false)} ></DetalleVehiculos>
+
+                                    <AlertDialog vehiculo={item}></AlertDialog>
                                 </Grid>
 
                             </Grid>

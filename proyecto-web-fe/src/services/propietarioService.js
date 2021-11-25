@@ -27,4 +27,7 @@ sendEmail(bodys){
        body:bodys
    })
 }
+putPropietario(body){
+    return axios.put(this.baseUrl,body).then(res=>res.data)
+}
 }
