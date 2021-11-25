@@ -10,13 +10,14 @@ public class Propietario {
     private String cedula;
     private String nombre;
     private String apellido;
+    private String email;
     private List<Vehiculo> vehiculos;
 
-
-    public Propietario(String cedula, String nombre, String apellido, List<Vehiculo> vehiculos) {
+    public Propietario(String cedula, String nombre, String apellido, String email, List<Vehiculo> vehiculos) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.email = email;
         this.vehiculos = vehiculos;
     }
 
@@ -42,6 +43,14 @@ public class Propietario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<Vehiculo> getVehiculos() {

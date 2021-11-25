@@ -6,7 +6,7 @@ baseUrl="http://localhost:8080/mail";
 
 
 sendEmail(body){
-    return axios.get(this.baseUrl,body).then(res=>res.data)
+    return axios.post(this.baseUrl,body).then(res=>res.data)
 }
 
 }

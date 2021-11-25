@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './components/Home';
+import PropietarioPost from './components/propietarioPost';
 
 ReactDOM.render(
   <React.StrictMode>

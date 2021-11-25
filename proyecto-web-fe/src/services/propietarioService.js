@@ -15,4 +15,16 @@ deletePropietario(id){
     return axios.delete(this.baseUrl+id).then(res=>res.data)
 }
 
+getPropietarioById(id){
+    return axios.get(this.baseUrl+id).then(res=>res.data)
+}
+sendEmail(bodys){
+   fetch("http://localhost:8080/mail/",{
+       crossdomain:true,
+       headers:{"Content-Type":"application/json"},
+       mode:'cors',
+       method:"POST",
+       body:bodys
+   })
+}
 }

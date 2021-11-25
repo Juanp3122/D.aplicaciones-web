@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,11 +25,15 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
+      
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit" href="#/ListaPropietarios">Listado</Button>
+          
+          <Button color="inherit"  href="/lista-propietarios" >Listado</Button>
+          
+          
           <Button color="inherit">Añadir Vehiculo</Button>
-          <Button color="inherit" href="#/PropietarioPost">Añadir Dueño</Button>
+          <Button color="inherit"  href="/post-propietarios">Añadir Dueño</Button>
         </Toolbar>
       </AppBar>
     </div>

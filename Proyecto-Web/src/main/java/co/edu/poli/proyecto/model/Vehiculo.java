@@ -10,14 +10,15 @@ public class Vehiculo {
     private String modelo;
     private String color;
     private String fechaRevision;
+    private TecnicoMecanica tecnicoMecanica;
 
 
-
-    public Vehiculo(String placa, String modelo, String color, String fechaRevision) {
+    public Vehiculo(String placa, String modelo, String color, String fechaRevision, TecnicoMecanica tecnicoMecanica) {
         this.placa = placa;
         this.modelo = modelo;
         this.color = color;
         this.fechaRevision = fechaRevision;
+        this.tecnicoMecanica = tecnicoMecanica;
     }
 
     public String getPlaca() {
@@ -50,5 +51,13 @@ public class Vehiculo {
 
     public void setFechaRevision(String fechaRevision) {
         this.fechaRevision = fechaRevision;
+    }
+
+    public TecnicoMecanica getTecnicoMecanica() {
+        return tecnicoMecanica;
+    }
+
+    public void setTecnicoMecanica(TecnicoMecanica tecnicoMecanica) {
+        this.tecnicoMecanica = tecnicoMecanica;
     }
 }

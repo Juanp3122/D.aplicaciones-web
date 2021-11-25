@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin("*")
 @RestController // Defines that this class is a spring bean
 @RequestMapping("/propietarios/")
 public class PropietarioController {

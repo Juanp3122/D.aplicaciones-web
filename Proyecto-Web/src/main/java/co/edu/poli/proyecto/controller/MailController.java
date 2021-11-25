@@ -4,12 +4,11 @@ package co.edu.poli.proyecto.controller;
 import co.edu.poli.proyecto.model.Mail;
 import co.edu.poli.proyecto.services.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin("*")
 @RestController
+@RequestMapping( "/mail")
 public class MailController {
  
 	@Autowired
@@ -23,7 +22,7 @@ public class MailController {
 	    "attachments" : ["/Users/wilsonsoto/Downloads/TransaccionPNCBANK.pdf"]
 	}
 	*/
-	@RequestMapping(value = "/mail", method=RequestMethod.GET)
+	@PostMapping("/")
 	public String sendEmail(@RequestBody Mail mail){
 		notificationService.sendEmail(mail);
 		return "Email sent successfully";

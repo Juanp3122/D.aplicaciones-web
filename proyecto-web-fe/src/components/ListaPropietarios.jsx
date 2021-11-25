@@ -59,30 +59,22 @@ export default function ListaPropietarios() {
         loadPropietario();
     }, [])
 
-    const Dialogo = (props) => {
-        parametro = props
-        // resultado=parametro
-        //console.log(parametro)
-        //DetalleVehiculos(parametro)
-        setOpenDialog(true)
-
-
-
-    }
+    
     const deletePropietario = (props) => {
         propietarioservice.deletePropietario(props)
         window.location.reload();
         console.log(props)
     }
+
     const sendEmail = (props) => {
-        let body={
+        let body=JSON.stringify({
             
                 mailTo:props,
                 mailSubject: "Test react",
                 mailContent: "Test react"
             
-        }
-        emailservice.sendEmail(body)
+        })
+        propietarioservice.sendEmail(body)
         console.log(body)
     }
         
@@ -160,7 +152,7 @@ export default function ListaPropietarios() {
                                 </Grid>
                                 <Grid item lg={2} style={{ display: "inline-flex" }}>
                             
-                                    <IconButton onClick={() => Dialogo(item)} key={item} aria-label="delete">
+                                    <IconButton  href={ `/propietario/${item.cedula}`}  key={item} aria-label="delete">
                                         <VisibilityIcon />
                                     </IconButton>
                                     <IconButton onClick={() => deletePropietario(item.cedula)} aria-label="delete">
