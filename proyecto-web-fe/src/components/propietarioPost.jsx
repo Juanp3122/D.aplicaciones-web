@@ -2,6 +2,7 @@ import { Button, Grid, TextField, Typography } from "@material-ui/core";
 import { useState } from "react";
 import { propietarioService } from "../services/propietarioService";
 import NavBar from "./NavBar";
+import Swal from 'sweetalert2';
 export default function PropietarioPost() {
     const propietarioVacio = {
         cedula: "",
@@ -23,7 +24,20 @@ export default function PropietarioPost() {
     }
 
     function button(propietario) {
+        
+
+        Swal.fire({
+            title: "Éxito",
+            text: 'El Vehiculo fue añadido correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#4BB547',
+            reverseButtons: true
+        })
+        
         propietarioservice.postPropietario(propietario)
+        
+        
     }
     return (
         <>

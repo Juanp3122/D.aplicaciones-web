@@ -84,7 +84,7 @@ export default function ListaPropietarios() {
 
             mailTo: props.email,
             mailSubject: "Recordatorio revisión",
-            mailContent: `Señor@ ${props.nombre} ${props.apellido} la fecha de revisión tecnomecánica de uno de sus vehiculos está pronta a vencer` 
+            mailContent: `Señor@ ${props.nombre} ${props.apellido} la fecha de revisión tecnomecánica de uno de sus vehiculos está pronta a vencer ` 
 
         })
         propietarioservice.sendEmail(body)

@@ -25,6 +25,9 @@ export default function Home() {
                     <Route exact path="/propietario/:propietarioId">
                         <PropietarioDetalle></PropietarioDetalle>
                     </Route>
+                    <Route exact path="/">
+                        <ListaPropietarios></ListaPropietarios>
+                    </Route>
                 </Switch>
 
 
